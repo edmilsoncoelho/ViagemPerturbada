@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Blues da Rodovia</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
+<meta charset="UTF-8">
+<title>Blues da Rodovia</title>
 
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
     body {
       height: 100vh;
       background: url('imagem.png') no-repeat center center/cover;
@@ -20,70 +20,79 @@
       color: white;
     }
 
-    .container {
-      background: rgba(0, 0, 0, 0.6);
-      padding: 30px;
-      border-radius: 15px;
-      width: 80%;
-      max-width: 800px;
-      text-align: center;
-    }
+  body {
+    height: 100vh;
+    background: url('imagem.png') no-repeat center center/cover;
+  }
 
-    h1 {
-      margin-bottom: 20px;
-    }
+  /* PLAYER FLUTUANTE */
+  .player {
+    position: absolute;
+    bottom: 40px;
+    right: 40px;
+    width: 320px;
+    padding: 15px;
+    border-radius: 15px;
 
-    .player {
-      margin-bottom: 30px;
-    }
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(10px);
+    color: white;
+  }
 
-    button {
-      padding: 10px 20px;
-      margin: 5px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      background: #ff9800;
-      color: white;
-      font-weight: bold;
-    }
+  .title {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
 
-    button:hover {
-      background: #e68900;
-    }
+  .controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
 
-    input[type="range"] {
-      width: 100%;
-      margin-top: 10px;
-    }
+  button {
+    flex: 1;
+    padding: 8px;
+    border: none;
+    border-radius: 8px;
+    background: #ff9800;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+  }
 
-    .video-container {
-      margin-top: 20px;
-    }
+  button:hover {
+    background: #e68900;
+  }
 
-    iframe {
-      width: 100%;
-      height: 300px;
-      border-radius: 10px;
-      border: none;
-    }
-  </style>
+  input[type="range"] {
+    width: 100%;
+  }
+</style>
 </head>
+
 <body>
 
-<div class="container">
-  <h1>🎸 Blues da Rodovia</h1>
+<!-- PLAYER -->
+<div class="player">
+  <div class="title">🎸 Blues da Rodovia</div>
 
+<<<<<<< HEAD
+  <audio id="audio" src="musica.mp3"></audio>
+=======
   <!-- Player de áudio -->
   <div class="player">
     <audio id="audio" src="musica.mp3"></audio>
+>>>>>>> d0087ff44465958f9854f573fc6376961612c4fa
 
+  <div class="controls">
     <button onclick="playAudio()">Play</button>
     <button onclick="pauseAudio()">Pause</button>
-
-    <input type="range" id="progress" value="0" step="1">
   </div>
 
+<<<<<<< HEAD
+  <input type="range" id="progress" value="0">
+=======
   <!-- Vídeo do YouTube -->
   <div class="video-container">
     <h2>🎥 Assista ao vídeo</h2>
@@ -91,6 +100,7 @@
             allowfullscreen>
     </iframe>
   </div>
+>>>>>>> d0087ff44465958f9854f573fc6376961612c4fa
 </div>
 
 <script>
@@ -105,14 +115,16 @@
     audio.pause();
   }
 
-  // Atualiza barra de progresso
   audio.addEventListener('timeupdate', () => {
-    progress.value = (audio.currentTime / audio.duration) * 100;
+    if (audio.duration) {
+      progress.value = (audio.currentTime / audio.duration) * 100;
+    }
   });
 
-  // Permite avançar na música
   progress.addEventListener('input', () => {
-    audio.currentTime = (progress.value / 100) * audio.duration;
+    if (audio.duration) {
+      audio.currentTime = (progress.value / 100) * audio.duration;
+    }
   });
 </script>
 
